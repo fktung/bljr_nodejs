@@ -1,0 +1,25 @@
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-md-5">
+      <% if (!contact) { %>
+        <div class="alert alert-danger" role="alert">
+          Contact Tidak ditemukan. <br>
+          <a href="/contact" class="alert-link">Kembali</a>
+        </div>
+      <% } else { %>
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">Nama : <%= contact.nama %> </h5>
+            <p class="card-text">Nomor : <%= contact.nomor %></p>
+            <% if (contact.email) { %>
+              <p class="card-text">Email : <%= contact.email %></p>
+            <% } %>
+            <a href="/contact/edit/<%= contact.nama %>" class="btn btn-info badge">Ubah</a>
+            <a href="/contact/delete/<%= contact.nama %>" class="btn btn-danger badge" onclick="return confirm('yakin')">Hapus</a>
+            <a href="/contact" class="card-link d-block mt-2">&laquo; Kembali ke halaman contact</a>
+          </div>
+        </div>
+      <% } %> 
+    </div>
+  </div>
+</div>
